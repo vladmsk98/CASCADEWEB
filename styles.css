@@ -104,6 +104,33 @@ body {
   text-overflow: ellipsis;
 }
 
+.image-description a {
+  color: var(--sun-gold);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.image-description a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(234, 234, 234, 0.2);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.image-description a:hover {
+  color: var(--snow-light);
+}
+
+.image-description a:hover::after {
+  opacity: 1;
+}
+
 @media (max-width: 600px) {
   .image-card {
     padding: 26px 18px;
