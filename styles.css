@@ -23,11 +23,26 @@ body {
   min-height: 100vh;
   padding: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-image:
     radial-gradient(circle at 10% 20%, rgba(234, 234, 234, 0.03) 0%, transparent 35%),
     radial-gradient(circle at 90% 80%, rgba(234, 234, 234, 0.02) 0%, transparent 40%);
+}
+
+.banner-card {
+  margin-bottom: 20px;
+  text-align: center;
+  max-width: 460px;
+  width: 100%;
+}
+
+.banner {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
 .image-card {
