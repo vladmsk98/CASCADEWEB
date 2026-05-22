@@ -1,18 +1,10 @@
-/* ==================================================
-   DRCDLX — Release Card (Village Edition)
-   Цель: чистая информация по релизу, в духе сельского пейзажа
-   Поддержка: WCAG AA, адаптивность, доступность
-   Основа: анализ изображения обложки (поле, сельский дом, возвышенность)
-   ================================================== */
-
 :root {
-  /* Горная палитра */
-  --rock-dark: #1a1a1c;        /* глубокие тени, основной фон */
-  --rock-mid: #2a2a2d;         /* кард, тени на скалах */
-  --snow-light: #eaeaea;       /* основной текст, снег */
-  --sun-gold: #e8a96d;         /* акценты: освещённые гребни, ссылки */
-  --sky-soft: #f5c9a8;         /* метаданные, второстепенный текст */
-  --stone-gray: #7a7a7c;       /* границы, метаданные, нейтральные элементы */
+  --rock-dark: #1a1a1c;
+  --rock-mid: #2a2a2d;
+  --snow-light: #eaeaea;
+  --sun-gold: #e8a96d;
+  --sky-soft: #f5c9a8;
+  --stone-gray: #7a7a7c;
   --border-soft: rgba(234, 234, 234, 0.15);
 
   --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
@@ -33,16 +25,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* Лёгкая текстура камня — имитация рельефа */
   background-image:
     radial-gradient(circle at 10% 20%, rgba(234, 234, 234, 0.03) 0%, transparent 35%),
     radial-gradient(circle at 90% 80%, rgba(234, 234, 234, 0.02) 0%, transparent 40%);
 }
 
-.release-card {
+.image-card {
   max-width: 460px;
   width: 100%;
-  background: rgba(30, 30, 34, 0.92); /* матовый камень, без blur */
+  background: rgba(30, 30, 34, 0.92);
   border-radius: 14px;
   padding: 30px 24px;
   text-align: center;
@@ -53,7 +44,7 @@ body {
   position: relative;
 }
 
-.release-card::after {
+.image-card::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -78,17 +69,16 @@ body {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.65);
 }
 
-.track-title {
+.image-title {
   font-size: 2.7rem;
   font-weight: 800;
   letter-spacing: 1.8px;
   text-transform: uppercase;
   margin: 0 0 20px;
   color: var(--snow-light);
-  /* Без stroke и тени — текст «в камне», не на воде */
 }
 
-.track-meta {
+.image-description {
   font-size: 0.98rem;
   opacity: 0.85;
   color: var(--sky-soft);
@@ -99,263 +89,18 @@ body {
   text-overflow: ellipsis;
 }
 
-.track-separator {
-  height: 1px;
-  background: var(--border-soft);
-  margin: 32px 0;
-  position: relative;
-}
-
-.track-separator::before {
-  content: "• • •";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: var(--rock-dark);
-  padding: 0 12px;
-  color: var(--stone-gray);
-  font-size: 0.8rem;
-}
-
-.meta-highlight {
-  color: var(--snow-light);
-  font-weight: 500;
-  position: relative;
-  transition: color 0.2s ease;
-}
-
-.meta-highlight::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: rgba(234, 234, 234, 0.2);
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-.meta-highlight:hover {
-  color: var(--sun-gold);
-}
-
-.meta-highlight:hover::after {
-  opacity: 1;
-}
-
-.audio-player {
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto 24px;
-  background: rgba(25, 25, 28, 0.95);
-  border-radius: 12px;
-  padding: 16px;
-  box-shadow:
-    0 6px 18px rgba(0, 0, 0, 0.5),
-    inset 0 0 12px rgba(0, 0, 0, 0.7);
-  border: 1px solid var(--border-soft);
-  transition: box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.audio-player:focus-within {
-  box-shadow:
-    0 6px 24px rgba(232, 169, 109, 0.4),
-    inset 0 0 12px rgba(0, 0, 0, 0.7);
-  border-color: rgba(232, 169, 109, 0.5);
-}
-
-.download-options summary {
-  padding: 10px 16px;
-  background: rgba(232, 169, 109, 0.12);
-  color: var(--snow-light);
-  border-radius: 8px;
-  cursor: pointer;
-  text-align: center;
-  margin-top: 16px;
-  transition: background 0.2s;
-}
-
-.download-options summary:hover {
-  background: rgba(232, 169, 109, 0.2);
-}
-
-.format-list {
-  list-style: none;
-  padding: 10px 0;
-  background: rgba(0, 0, 0, 0.2);
-  border-top: 1px solid var(--border-soft);
-}
-
-.format-list a {
-  display: block;
-  padding: 8px 16px;
-  color: var(--stone-gray);
-  text-decoration: none;
-  transition: background 0.2s;
-}
-
-.format-list a:hover {
-  background: rgba(234, 234, 234, 0.08);
-  color: var(--snow-light);
-}
-
-.sharing-actions {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  margin-top: 20px;
-  flex-wrap: wrap;
-}
-
-.share-btn {
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-family: var(--font-main);
-  font-size: 0.95rem;
-  text-decoration: none;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  border: 1px solid var(--border-soft);
-  color: var(--stone-gray);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.share-btn:hover {
-  color: var(--sun-gold);
-  transform: translateY(-2px);
-}
-
-.copy-btn {
-  background: rgba(100, 100, 100, 0.15);
-}
-.copy-btn:hover {
-  background: rgba(100, 100, 100, 0.25);
-}
-
-.vk-btn {
-  background: rgba(81, 129, 184, 0.15);
-}
-.vk-btn:hover {
-  background: rgba(81, 129, 184, 0.25);
-}
-
-.ok-btn {
-  background: rgba(255, 128, 0, 0.15);
-}
-.ok-btn:hover {
-  background: rgba(255, 128, 0, 0.25);
-}
-
-
-.back-to-top-btn {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  opacity: 0;
-  pointer-events: none;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.4rem;
-  color: var(--stone-gray);
-  background: rgba(30, 30, 34, 0.9);
-  box-shadow:
-    0 6px 16px rgba(0, 0, 0, 0.5),
-    inset 0 0 8px rgba(0, 0, 0, 0.7);
-  border: 1px solid var(--border-soft);
-  z-index: 100;
-  transition:
-    opacity 0.3s ease,
-    transform 0.2s ease,
-    box-shadow 0.3s ease;
-}
-
-.back-to-top-btn.show {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.back-to-top-btn:hover {
-  transform: translateY(-3px);
-  box-shadow:
-    0 8px 24px rgba(232, 169, 109, 0.4),
-    inset 0 0 8px rgba(0, 0, 0, 0.7);
-  color: var(--sun-gold);
-}
-
-.back-to-top-btn:focus {
-  outline: none;
-  box-shadow:
-    0 8px 28px rgba(232, 169, 109, 0.6),
-    inset 0 0 8px rgba(0, 0, 0, 0.7);
-}
-
-/* Стили для элементов управления фильтром */
-.filter-controls {
-  display: flex;
-  justify-content: center;
-  gap: 10px; /* Расстояние между кнопками */
-  margin-bottom: 20px; /* Отступ снизу от фильтров до следующего элемента */
-  flex-wrap: wrap; /* Кнопки могут переноситься на новую строку на узких экранах */
-}
-
-.filter-btn {
-  padding: 8px 16px;
-  border-radius: 20px; /* Скругленные углы для кнопок */
-  border: 1px solid var(--border-soft);
-  background: rgba(234, 234, 234, 0.06); /* Фон по умолчанию */
-  color: var(--stone-gray); /* Цвет текста по умолчанию */
-  cursor: pointer;
-  font-family: var(--font-main);
-  font-size: 0.9rem;
-  transition: all 0.2s ease; /* Плавный переход для hover и active */
-}
-
-.filter-btn:hover {
-  background: rgba(234, 234, 234, 0.12); /* Фон при наведении */
-  color: var(--snow-light); /* Цвет текста при наведении */
-}
-
-.filter-btn.active {
-  background: var(--sun-gold); /* Фон активной кнопки */
-  color: var(--rock-dark); /* Цвет текста активной кнопки */
-  border-color: var(--sun-gold); /* Цвет границы активной кнопки */
-}
-
-/* Правило для скрытия треков */
-.track-wrapper.hidden {
-  display: none;
-}
-
-/* Адаптивность */
 @media (max-width: 600px) {
-  .release-card {
+  .image-card {
     padding: 26px 18px;
   }
-  .track-title {
+  .image-title {
     font-size: 2.1rem;
     letter-spacing: 1.6px;
   }
-  .track-meta {
+  .image-description {
     font-size: 0.92rem;
   }
   .cover {
     margin-bottom: 18px;
-  }
-  .filter-controls {
-    gap: 8px; /* Уменьшенный отступ на мобильных */
-    margin-bottom: 16px; /* Уменьшенный отступ */
-  }
-  .filter-btn {
-    padding: 6px 12px; /* Уменьшенный паддинг на мобильных */
-    font-size: 0.85rem; /* Уменьшенный размер шрифта */
   }
 }
